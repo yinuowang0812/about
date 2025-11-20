@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title | default: "The Todd Group" }}</title>
     
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS (样式引擎) -->
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     
-    <!-- Fonts: Merriweather (Serif) & Lato (Sans) -->
+    <!-- Fonts: Merriweather (标题) & Lato (正文) -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
@@ -21,8 +21,8 @@
             theme: {
                 extend: {
                     colors: {
-                        'ucl-blue': '#002855',
-                        'ucl-accent': '#D4AF37',
+                        'ucl-blue': '#002855', // UCL 深蓝
+                        'ucl-accent': '#D4AF37', // 金色点缀
                         'ucl-dark': '#0d1117', 
                     }
                 }
@@ -32,48 +32,47 @@
 </head>
 <body class="bg-white text-slate-800 flex flex-col min-h-screen border-t-4 border-ucl-blue">
 
-    <!-- TOP UTILITY BAR -->
+    <!-- 顶部工具栏 (Top Bar) -->
     <div class="bg-slate-100 border-b border-slate-200 py-2 px-4 text-xs text-slate-600">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
             <span class="hidden sm:inline">University College London · School of Pharmacy</span>
             <span class="sm:hidden">UCL School of Pharmacy</span>
             <div class="flex gap-4">
                 <a href="https://www.ucl.ac.uk" class="hover:text-ucl-blue transition">UCL Home</a>
-                <!-- Moved Internal Here -->
                 <a href="./internal.html" class="font-bold text-ucl-blue hover:text-ucl-accent transition">Internal (Intranet)</a>
             </div>
         </div>
     </div>
 
-    <!-- MAIN NAVIGATION -->
+    <!-- 主导航栏 (Main Nav) -->
     <nav class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20">
-                <!-- Brand -->
+                <!-- Logo 和标题 -->
                 <div class="flex-shrink-0 flex items-center gap-3">
                     <a href="./" class="flex items-center gap-3 group">
                         <div class="h-10 w-10 bg-ucl-blue text-white flex items-center justify-center font-serif font-bold rounded-sm group-hover:bg-ucl-accent transition">T</div>
                         <div class="flex flex-col">
                             <span class="font-serif text-xl font-bold text-slate-900 leading-none">The Todd Group</span>
-                            <!-- Hides on smaller screens to prevent layout break -->
                             <span class="text-xs uppercase tracking-widest text-slate-500 mt-1 hidden lg:block">Open Source Drug Discovery</span>
                         </div>
                     </a>
                 </div>
                 
-                <!-- Desktop Menu (Tighter Spacing) -->
+                <!-- 桌面菜单 (Desktop Menu) -->
                 <div class="hidden md:flex space-x-5 items-center">
                     <a href="./" class="text-sm font-bold text-slate-700 hover:text-ucl-blue transition-all py-2">HOME</a>
                     <a href="./research.html" class="text-sm font-medium text-slate-600 hover:text-ucl-blue transition-all py-2">RESEARCH</a>
                     
-                    <!-- People Dropdown -->
-                    <div class="relative group">
-                        <button class="flex items-center gap-1 text-sm font-medium text-slate-600 hover:text-ucl-blue transition-all py-2">
+                    <!-- People 下拉菜单 -->
+                    <div class="relative group z-50">
+                        <button class="flex items-center gap-1 text-sm font-medium text-slate-600 hover:text-ucl-blue transition-all py-2 focus:outline-none">
                             PEOPLE
-                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <div class="absolute left-0 w-48 bg-white border border-slate-200 shadow-lg rounded-sm hidden group-hover:block pt-2">
-                            <div class="bg-white border border-slate-200">
+                        <!-- 下拉内容 -->
+                        <div class="absolute left-0 w-48 bg-white border border-slate-200 shadow-xl rounded-sm hidden group-hover:block pt-1">
+                            <div class="bg-white">
                                 <a href="./current.html" class="block px-4 py-3 text-sm text-slate-600 hover:bg-slate-50 hover:text-ucl-blue border-b border-slate-100">Current Members</a>
                                 <a href="./past.html" class="block px-4 py-3 text-sm text-slate-600 hover:bg-slate-50 hover:text-ucl-blue">Past Members</a>
                             </div>
@@ -88,11 +87,11 @@
         </div>
     </nav>
 
-    <!-- MAIN CONTENT GRID -->
+    <!-- 主内容区 (Main Content) -->
     <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
             
-            <!-- SIDEBAR -->
+            <!-- 侧边栏 (Sidebar) -->
             <aside class="lg:col-span-3 space-y-8 border-r border-slate-100 pr-4 hidden lg:block">
                 <div>
                     <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 border-b pb-2">Affiliations</h3>
@@ -111,19 +110,18 @@
                 </div>
             </aside>
 
-            <!-- MAIN CONTENT AREA -->
+            <!-- 文章内容区 (Article) -->
             <div class="lg:col-span-9">
-                <article class="prose prose-slate max-w-none prose-headings:font-serif prose-headings:text-ucl-blue prose-a:text-ucl-blue">
+                <!-- 这里的 class 负责排版你的 markdown 内容 -->
+                <article class="prose prose-slate max-w-none prose-headings:font-serif prose-headings:text-ucl-blue prose-a:text-ucl-blue prose-img:rounded-sm prose-img:shadow-sm">
                     {{ content }}
                 </article>
             </div>
         </div>
     </main>
 
-    <!-- update trigger -->
-
-    <!-- FOOTER -->
-    <footer class="bg-ucl-dark text-white py-8 border-t-4 border-ucl-accent">
+    <!-- 页脚 (Footer) -->
+    <footer class="bg-ucl-dark text-white py-8 border-t-4 border-ucl-accent mt-auto">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h5 class="font-serif text-lg font-bold mb-2">The Todd Group</h5>
             <p class="text-sm text-slate-400 mb-6">
